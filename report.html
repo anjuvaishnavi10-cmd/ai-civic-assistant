@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report an Issue | AI Civic Assistant</title>
+  <meta name="description" content="Report municipal issues such as potholes, garbage piles, damaged streetlights, water leaks, and open manholes using AI Civic Assistant.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-report">
+
+  <!-- =========================================================================
+       Site Header / Navigation Bar
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <span>AI Civic Assistant</span>
+        <span class="brand-badge">PBL Prototype</span>
+      </a>
+
+      <!-- Mobile Toggle -->
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation" id="nav-toggle-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="main-nav-links">
+        <li class="nav-item">
+          <a href="index.html" id="nav-home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="report.html" class="active" id="nav-report">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Report Issue
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="track.html" id="nav-track">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            Track Complaint
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="admin.html" id="nav-admin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Admin Dashboard
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Report Issue Form + AI Image Analysis Section
+       ========================================================================= -->
+  <main class="form-page-layout">
+    <div class="container">
+      <div class="form-grid">
+
+        <!-- Left Column: Citizen Grievance Form -->
+        <div class="form-card">
+          <div class="form-header">
+            <h2>Lodge a Civic Complaint</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Fill in the details below. Our AI Vision simulation automatically categorizes the problem 
+              and submits your report to the municipal database.
+            </p>
+          </div>
+
+          <!-- Quick Sample Presets (for instant review testing) -->
+          <div class="sample-presets-box">
+            <div class="sample-presets-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              Quick Test: Select a Sample Demo Issue
+            </div>
+            <div class="sample-preset-chips">
+              <button type="button" class="chip-btn chip-preset-btn" data-preset="pothole" id="preset-pothole">
+                🛣️ Pothole
+              </button>
+              <button type="button" class="chip-btn chip-preset-btn" data-preset="garbage" id="preset-garbage">
+                🗑️ Garbage
+              </button>
+              <button type="button" class="chip-btn chip-preset-btn" data-preset="streetlight" id="preset-streetlight">
+                💡 Streetlight
+              </button>
+              <button type="button" class="chip-btn chip-preset-btn" data-preset="water_leak" id="preset-water">
+                💧 Water Leak
+              </button>
+              <button type="button" class="chip-btn chip-preset-btn" data-preset="manhole" id="preset-manhole">
+                ⚠️ Open Manhole
+              </button>
+            </div>
+          </div>
+
+          <form id="report-issue-form" style="margin-top: 1.5rem;">
+            <!-- 1. Image Upload Dropzone -->
+            <div class="form-group">
+              <label class="form-label">
+                Upload Issue Photograph <span class="required">*</span>
+                <span class="helper">(PNG, JPG, or SVG)</span>
+              </label>
+
+              <div class="upload-dropzone" id="upload-dropzone">
+                <input 
+                  type="file" 
+                  id="issue-image-input" 
+                  class="file-input-hidden" 
+                  accept="image/*" 
+                />
+                <div class="upload-icon">
+                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+                <div class="upload-title">Click to upload or drag photo here</div>
+                <div class="upload-subtitle">Supports live AI feature analysis simulation</div>
+              </div>
+            </div>
+
+            <!-- 2. Issue Category -->
+            <div class="form-group">
+              <label for="issue-category" class="form-label">
+                Issue Category <span class="required">*</span>
+              </label>
+              <select id="issue-category" class="form-control" required>
+                <option value="Pothole">Pothole (Road damage / crater)</option>
+                <option value="Garbage">Garbage (Waste accumulation / overflow)</option>
+                <option value="Streetlight">Streetlight (Broken luminaire / darkness)</option>
+                <option value="Water Leakage">Water Leakage (Burst pipeline / flooding)</option>
+                <option value="Open Manhole">Open Manhole (Missing cover / hazard)</option>
+              </select>
+            </div>
+
+            <!-- 3. Location Field with Real GPS Capture -->
+            <div class="form-group" id="location-form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                <label for="issue-location" class="form-label" style="margin-bottom: 0;">
+                  Incident Location <span class="required">*</span>
+                </label>
+                <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                  <button type="button" class="btn btn-primary btn-sm" id="use-gps-loc-btn" title="Capture real GPS coordinates from browser Geolocation API">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 2px;">
+                      <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                    </svg>
+                    Use My Current Location
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-sm" id="fill-sample-loc-btn" title="Insert realistic sample address">
+                    📍 Sample Loc
+                  </button>
+                </div>
+              </div>
+
+              <input 
+                type="text" 
+                id="issue-location" 
+                class="form-control" 
+                placeholder="e.g. MG Road, Near Metro Pillar #142 (or click 'Use My Current Location')" 
+                required 
+              />
+
+              <!-- Real GPS Status & Coordinates Display Box -->
+              <div id="gps-status-box" style="display: none; margin-top: 0.75rem;"></div>
+            </div>
+
+            <!-- 4. Priority Dropdown -->
+            <div class="form-group">
+              <label for="issue-priority" class="form-label">
+                Priority Level <span class="required">*</span>
+              </label>
+              <select id="issue-priority" class="form-control" required>
+                <option value="Low">Low (Minor inconvenience)</option>
+                <option value="Medium">Medium (Affecting neighborhood traffic)</option>
+                <option value="High" selected>High (Immediate hazard / danger)</option>
+              </select>
+            </div>
+
+            <!-- 5. Issue Description -->
+            <div class="form-group">
+              <label for="issue-description" class="form-label">
+                Issue Description <span class="required">*</span>
+              </label>
+              <textarea 
+                id="issue-description" 
+                class="form-control" 
+                rows="4" 
+                placeholder="Describe the problem, severity, and any hazards observed..." 
+                required
+              >Hazardous road damage creating a risk for commuting citizens.</textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" id="submit-complaint-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              Submit Complaint &amp; Generate ID
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: AI Image Analysis Section (Simulated AI Result) -->
+        <aside class="ai-preview-card" id="ai-inspection-section">
+          <div class="ai-card-header">
+            <div class="ai-header-left">
+              <svg class="ai-sparkle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--primary-900);">AI Vision Inspector</h3>
+            </div>
+            <span class="ai-badge-simulated">Simulated AI Result</span>
+          </div>
+
+          <!-- Image Scanning Viewport with Laser Beam & Bounding Box -->
+          <div class="ai-viewport" id="ai-viewport">
+            <img src="assets/images/pothole.svg" alt="Pothole Demo Preview" />
+            <div class="ai-scanner-line"></div>
+            <div class="ai-bounding-box">
+              <span class="ai-tag-floating">Pothole</span>
+            </div>
+          </div>
+
+          <!-- AI Model Metrics Panel -->
+          <div class="ai-results-panel">
+            <div class="ai-metric-row">
+              <span class="ai-metric-label">Detected Category:</span>
+              <span class="ai-metric-value" id="ai-detected-category">Pothole</span>
+            </div>
+
+            <div class="confidence-bar-wrap">
+              <div class="confidence-bar-header">
+                <span class="ai-metric-label">AI Confidence Score:</span>
+                <span class="ai-metric-value" id="ai-confidence-val">95.4%</span>
+              </div>
+              <div class="confidence-track">
+                <div class="confidence-fill" id="ai-confidence-fill" style="width: 95.4%;"></div>
+              </div>
+            </div>
+
+            <div class="ai-metric-row">
+              <span class="ai-metric-label">Severity Assessment:</span>
+              <span class="ai-metric-value" id="ai-priority-score">High</span>
+            </div>
+
+            <div class="ai-metric-row" style="margin-bottom: 0;">
+              <span class="ai-metric-label">Pipeline Architecture:</span>
+              <span class="ai-metric-value" style="font-size: 0.82rem; color: var(--primary-700);">YOLOv8-Civic (Simulation Mode)</span>
+            </div>
+
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5; border-top: 1px dashed var(--border-light); padding-top: 0.65rem;" id="ai-note-text">
+              Simulated feature extraction matches road asphalt cavity contours with high precision.
+            </div>
+          </div>
+
+          <!-- Clear Demonstration Disclaimer Banner -->
+          <div class="ai-disclaimer-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <div>
+              <strong>Academic Project Disclaimer:</strong> This is a clearly labelled demonstration of the planned AI feature. 
+              Real YOLO or CNN neural network inference is not running on this static prototype.
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       Success Modal (Appears after submission with generated Complaint ID)
+       ========================================================================= -->
+  <div class="modal-overlay" id="success-modal">
+    <div class="modal-card">
+      <div class="modal-success-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <h3 class="modal-title">Complaint Registered!</h3>
+      <p class="modal-text">
+        Your complaint has been validated and recorded into the civic tracking system. 
+        Save your Complaint ID to track status updates.
+      </p>
+
+      <div class="id-display-box">
+        <span class="id-display-code" id="modal-complaint-id">CIVIC-2026-XXXX</span>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="copyComplaintId(document.getElementById('modal-complaint-id').textContent)">
+          Copy ID
+        </button>
+      </div>
+
+      <div class="modal-actions">
+        <a href="track.html" class="btn btn-primary" id="modal-track-link">
+          🔍 Track This Complaint
+        </a>
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('success-modal').classList.remove('active')">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 AI Civic Assistant &bull; BTech CSE PBL Academic Demonstration</div>
+      <div class="college-badge">Stored in browser localStorage</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

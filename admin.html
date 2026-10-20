@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | AI Civic Assistant</title>
+  <meta name="description" content="Municipal Admin Dashboard for reviewing citizen grievances, updating status, and filtering civic complaints.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-admin">
+
+  <!-- =========================================================================
+       Site Header / Navigation Bar
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <span>AI Civic Assistant</span>
+        <span class="brand-badge">PBL Prototype</span>
+      </a>
+
+      <!-- Mobile Toggle -->
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation" id="nav-toggle-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="main-nav-links">
+        <li class="nav-item">
+          <a href="index.html" id="nav-home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="report.html" id="nav-report">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Report Issue
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="track.html" id="nav-track">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            Track Complaint
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="admin.html" class="active" id="nav-admin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Admin Dashboard
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Admin Dashboard Main Section
+       ========================================================================= -->
+  <main class="admin-page-layout">
+    <div class="container">
+
+      <!-- Header Row with Actions -->
+      <div class="admin-header-row">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <h1 style="font-size: 2rem; font-weight: 800; color: var(--primary-900);">
+              Municipal Admin Dashboard
+            </h1>
+            <span class="badge" style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd;">
+              Demo System
+            </span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Demonstration dashboard for municipal officers. Update complaint status to reflect instantly across the tracking portal.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="report.html" class="btn btn-primary btn-sm">
+            + New Complaint
+          </a>
+          <button type="button" class="btn btn-secondary btn-sm" id="admin-reset-data-btn" title="Reset to standard 5 demo complaints">
+            🔄 Reset Sample Data
+          </button>
+        </div>
+      </div>
+
+      <!-- Demo System Notice Banner -->
+      <div class="ai-disclaimer-box" style="margin-bottom: 2rem; background: #ecfdf5; border-color: var(--primary-200); color: var(--primary-900);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" style="flex-shrink: 0; margin-top: 1px;">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <div>
+          <strong>Viva Demonstration Note:</strong> This is a frontend demonstration dashboard. Changing a status dropdown here 
+          immediately saves to <code>localStorage</code>. You can switch to the <em>Track Complaint</em> tab to observe real-time status reflection.
+        </div>
+      </div>
+
+      <!-- Summary Statistics Row -->
+      <div class="admin-stats-row">
+        <!-- Total -->
+        <div class="admin-stat-card">
+          <div class="admin-stat-info">
+            <h4>Total Complaints</h4>
+            <div class="count" id="admin-count-total">0</div>
+          </div>
+          <div class="stat-icon total" style="width: 44px; height: 44px; font-size: 1.2rem;">
+            📊
+          </div>
+        </div>
+
+        <!-- Pending -->
+        <div class="admin-stat-card">
+          <div class="admin-stat-info">
+            <h4>Pending Review</h4>
+            <div class="count" style="color: var(--status-pending);" id="admin-count-pending">0</div>
+          </div>
+          <div class="stat-icon pending" style="width: 44px; height: 44px; font-size: 1.2rem;">
+            ⏳
+          </div>
+        </div>
+
+        <!-- In Progress -->
+        <div class="admin-stat-card">
+          <div class="admin-stat-info">
+            <h4>In Progress</h4>
+            <div class="count" style="color: var(--status-progress);" id="admin-count-progress">0</div>
+          </div>
+          <div class="stat-icon" style="width: 44px; height: 44px; font-size: 1.2rem; background: var(--status-progress-bg); color: var(--status-progress);">
+            🔧
+          </div>
+        </div>
+
+        <!-- Resolved -->
+        <div class="admin-stat-card">
+          <div class="admin-stat-info">
+            <h4>Resolved Cases</h4>
+            <div class="count" style="color: var(--status-resolved);" id="admin-count-resolved">0</div>
+          </div>
+          <div class="stat-icon resolved" style="width: 44px; height: 44px; font-size: 1.2rem;">
+            ✅
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls & Filters Toolbar -->
+      <div class="admin-toolbar">
+        <div class="toolbar-filters">
+          <!-- Category Filter -->
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label for="admin-filter-category" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">
+              Category:
+            </label>
+            <select id="admin-filter-category" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="Pothole">Pothole</option>
+              <option value="Garbage">Garbage</option>
+              <option value="Streetlight">Streetlight</option>
+              <option value="Water Leakage">Water Leakage</option>
+              <option value="Open Manhole">Open Manhole</option>
+            </select>
+          </div>
+
+          <!-- Status Filter -->
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label for="admin-filter-status" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">
+              Status:
+            </label>
+            <select id="admin-filter-status" class="filter-select">
+              <option value="all">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-input-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="admin-search-input" 
+            placeholder="Search by ID, location, or desc..." 
+          />
+        </div>
+      </div>
+
+      <!-- Complaints Data Table -->
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="civic-table" id="admin-complaints-table">
+            <thead>
+              <tr>
+                <th>Complaint ID</th>
+                <th>Photo</th>
+                <th>Category</th>
+                <th>Location &amp; Description</th>
+                <th>Priority</th>
+                <th>Update Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body">
+              <!-- Dynamically populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 AI Civic Assistant &bull; BTech CSE PBL Academic Demonstration</div>
+      <div class="college-badge">Demonstration Dashboard &bull; No Backend Required</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

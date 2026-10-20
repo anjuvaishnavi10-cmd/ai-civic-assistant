@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Civic Assistant | Report Civic Issues. Build a Better Community.</title>
+  <meta name="description" content="AI Civic Assistant is a smart civic tech platform helping citizens report and track municipal problems like potholes, garbage, broken streetlights, and water leaks.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-home">
+
+  <!-- =========================================================================
+       Site Header / Navigation Bar
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-icon">
+          <!-- Shield / Civic Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <span>AI Civic Assistant</span>
+        <span class="brand-badge">PBL Prototype</span>
+      </a>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation" id="nav-toggle-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="main-nav-links">
+        <li class="nav-item">
+          <a href="index.html" class="active" id="nav-home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="report.html" id="nav-report">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            Report Issue
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="track.html" id="nav-track">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            Track Complaint
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="admin.html" id="nav-admin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Admin Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="report.html" class="btn btn-primary btn-sm nav-cta-btn" id="nav-cta-report">
+            + Report Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Hero Section
+       ========================================================================= -->
+  <main>
+    <section class="hero-section" id="hero-section">
+      <div class="container hero-content">
+        <div class="hero-chip">
+          <!-- Sparkle Icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          BTech CSE Project-Based Learning Prototype
+        </div>
+
+        <h1 class="hero-title">
+          <span class="highlight">AI Civic Assistant</span>
+        </h1>
+
+        <p class="hero-tagline">“Report Civic Issues. Build a Better Community.”</p>
+
+        <p class="hero-description">
+          An intelligent municipal grievance platform that bridges citizens and local government. 
+          Upload an image of potholes, garbage piles, broken lights, or open manholes, and explore how 
+          simulated computer vision automates issue classification and live resolution tracking.
+        </p>
+
+        <div class="hero-actions">
+          <a href="report.html" class="btn btn-primary btn-lg" id="hero-btn-report">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            Report an Issue
+          </a>
+          <a href="track.html" class="btn btn-secondary btn-lg" id="hero-btn-track">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            Track Complaint
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Statistic Cards (Dynamic from localStorage)
+         ========================================================================= -->
+    <section class="stats-section" id="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <!-- Total Complaints -->
+          <div class="stat-card" id="card-stat-total">
+            <div class="stat-icon total">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="stat-number" id="home-stat-total">0</div>
+              <div class="stat-label">Total Complaints Reported</div>
+            </div>
+          </div>
+
+          <!-- Pending Complaints -->
+          <div class="stat-card" id="card-stat-pending">
+            <div class="stat-icon pending">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="stat-number" id="home-stat-pending">0</div>
+              <div class="stat-label">Pending / In-Progress Issues</div>
+            </div>
+          </div>
+
+          <!-- Resolved Complaints -->
+          <div class="stat-card" id="card-stat-resolved">
+            <div class="stat-icon resolved">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="stat-number" id="home-stat-resolved">0</div>
+              <div class="stat-label">Resolved Complaints</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         How It Works - 3 Step Process
+         ========================================================================= -->
+    <section class="process-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Municipal Workflow</span>
+          <h2 class="section-title">How AI Civic Assistant Works</h2>
+          <p class="section-subtitle">
+            A transparent three-step pipeline designed to accelerate civic incident resolution 
+            from street detection to department closure.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number-badge">1</div>
+            <div class="step-icon-wrap">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
+            <h3 class="step-title">1. Citizen Reports</h3>
+            <p class="step-description">
+              Citizens spot a civic problem (pothole, water burst, or garbage), capture a photo, 
+              tag their location, and submit the complaint within seconds.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number-badge">2</div>
+            <div class="step-icon-wrap">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="step-title">2. AI Vision Analysis</h3>
+            <p class="step-description">
+              Computer vision scans the uploaded image to classify the civic category, estimate severity, 
+              assign priority, and eliminate duplicate or spam submissions.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number-badge">3</div>
+            <div class="step-icon-wrap">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">3. Action & Resolution</h3>
+            <p class="step-description">
+              The municipal ward crew receives targeted alerts, dispatches repair teams, and updates 
+              the three-stage status tracker from Pending to In Progress to Resolved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Recent Community Complaints Showcase
+         ========================================================================= -->
+    <section class="process-section" style="padding-top: 0;" id="recent-activity">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-badge">Live Demonstration Feed</span>
+          <h2 class="section-title">Recent Civic Activity</h2>
+          <p class="section-subtitle">Real-time grievances logged in the system. Click any item to track its resolution timeline.</p>
+        </div>
+
+        <div id="home-recent-complaints" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto;">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="admin.html" class="btn btn-outline" id="home-view-all-admin">
+            View All in Admin Dashboard &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <span>AI Civic Assistant</span>
+          </div>
+          <p>
+            An AI-enabled civic assistance web application developed as a BTech Computer Science 
+            and Engineering Project-Based Learning (PBL) prototype.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="report.html">Report an Issue</a></li>
+            <li><a href="track.html">Track Complaint</a></li>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Supported Civic Issues</h4>
+          <ul>
+            <li>Pothole Hazards</li>
+            <li>Garbage Accumulation</li>
+            <li>Broken Streetlights</li>
+            <li>Water Pipeline Leaks</li>
+            <li>Open Manholes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 AI Civic Assistant &bull; BTech CSE PBL Academic Demonstration</div>
+        <div class="college-badge">College Project Prototype &bull; Frontend Demonstration</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
