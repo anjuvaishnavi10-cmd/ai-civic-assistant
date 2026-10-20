@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="road" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="deepPit" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="80%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Pavement / Road -->
+  <rect width="600" height="400" fill="url(#road)"/>
+
+  <!-- Pedestrian Path Lines / Sidewalk slabs -->
+  <line x1="0" y1="120" x2="600" y2="120" stroke="#475569" stroke-width="2"/>
+  <line x1="0" y1="280" x2="600" y2="280" stroke="#475569" stroke-width="2"/>
+  <line x1="180" y1="0" x2="180" y2="400" stroke="#475569" stroke-width="2" stroke-dasharray="8 8"/>
+  <line x1="420" y1="0" x2="420" y2="400" stroke="#475569" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <!-- Concrete Rim around Manhole -->
+  <ellipse cx="260" cy="220" rx="140" ry="90" fill="#64748b" stroke="#334155" stroke-width="6"/>
+  <ellipse cx="260" cy="220" rx="120" ry="75" fill="#475569" stroke="#1e293b" stroke-width="4"/>
+
+  <!-- The Open Pit / Sewer Abyss -->
+  <ellipse cx="260" cy="220" rx="105" ry="65" fill="url(#deepPit)"/>
+
+  <!-- Ladder Rungs inside dark pit -->
+  <line x1="240" y1="205" x2="280" y2="205" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <line x1="242" y1="225" x2="278" y2="225" stroke="#64748b" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+  <line x1="245" y1="245" x2="275" y2="245" stroke="#475569" stroke-width="4" stroke-linecap="round" opacity="0.2"/>
+
+  <!-- Displaced Heavy Cast Iron Manhole Cover (Leaning beside hole) -->
+  <g transform="translate(410, 180) rotate(22)">
+    <ellipse cx="0" cy="0" rx="90" ry="55" fill="#1e293b" stroke="#0f172a" stroke-width="6"/>
+    <ellipse cx="0" cy="0" rx="75" ry="45" fill="#334155"/>
+    <!-- Grid pattern on iron cover -->
+    <line x1="-50" y1="0" x2="50" y2="0" stroke="#1e293b" stroke-width="4"/>
+    <line x1="0" y1="-35" x2="0" y2="35" stroke="#1e293b" stroke-width="4"/>
+    <circle cx="0" cy="0" r="18" fill="#1e293b"/>
+    <text x="0" y="5" fill="#94a3b8" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">DRAIN</text>
+  </g>
+
+  <!-- Improvised Danger Warning Branch / Hazard Tape -->
+  <g transform="translate(100, 130)">
+    <!-- Diagonal yellow/black warning tape barrier -->
+    <line x1="30" y1="20" x2="190" y2="180" stroke="#eab308" stroke-width="10" stroke-dasharray="16 16"/>
+    <line x1="30" y1="20" x2="190" y2="180" stroke="#0f172a" stroke-width="10" stroke-dasharray="0 16 16 0"/>
+    <!-- Warning Cone -->
+    <polygon points="50,160 20,160 32,70 38,70" fill="#f97316"/>
+    <polygon points="29,95 41,95 44,115 26,115" fill="#ffffff"/>
+    <polygon points="23,130 47,130 49,145 21,145" fill="#ffffff"/>
+    <rect x="15" y="156" width="40" height="8" rx="2" fill="#c2410c"/>
+  </g>
+
+  <!-- Civic Issue Badge Overlay -->
+  <rect x="20" y="20" width="180" height="36" rx="8" fill="rgba(15, 23, 42, 0.85)"/>
+  <circle cx="40" cy="38" r="6" fill="#dc2626"/>
+  <text x="56" y="43" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Open Manhole</text>
+</svg>

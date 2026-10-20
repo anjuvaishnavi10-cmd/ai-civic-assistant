@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="potholeDepth" cx="45%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="70%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </radialGradient>
+  </defs>
+  <!-- Background Road -->
+  <rect width="600" height="400" fill="url(#roadGrad)"/>
+  
+  <!-- Road Texture / Asphalt grain -->
+  <path d="M0 60 H600 M0 140 H600 M0 280 H600 M0 360 H600" stroke="#475569" stroke-width="1" stroke-dasharray="8 16" opacity="0.4"/>
+  
+  <!-- Road Center White Lines -->
+  <line x1="0" y1="200" x2="120" y2="200" stroke="#f8fafc" stroke-width="8" stroke-dasharray="24 16"/>
+  <line x1="480" y1="200" x2="600" y2="200" stroke="#f8fafc" stroke-width="8" stroke-dasharray="24 16"/>
+
+  <!-- Asphalt Cracks around pothole -->
+  <path d="M220 160 L240 180 L230 210 L190 220 M380 170 L360 190 L390 230 L430 240 M280 120 L290 150 L270 170 M310 260 L330 290 L300 310" stroke="#090d16" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M250 140 L270 160 L260 180 M350 250 L370 270" stroke="#1e293b" stroke-width="2" fill="none"/>
+
+  <!-- Pothole Body -->
+  <ellipse cx="300" cy="210" rx="130" ry="70" fill="url(#potholeDepth)" stroke="#090d16" stroke-width="5"/>
+  <!-- Broken asphalt chunks inside -->
+  <polygon points="230,200 245,190 250,205 235,212" fill="#475569"/>
+  <polygon points="340,215 360,208 355,225 338,222" fill="#334155"/>
+  <polygon points="280,230 300,225 295,242 275,238" fill="#1e293b"/>
+  <ellipse cx="295" cy="215" rx="80" ry="35" fill="#020617" opacity="0.9"/>
+  
+  <!-- Stagnant rainwater in pothole -->
+  <path d="M260 215 Q295 235 340 218 Q310 205 260 215 Z" fill="#38bdf8" opacity="0.35"/>
+
+  <!-- Hazard Warning Marker / Cone on side -->
+  <g transform="translate(440, 130)">
+    <polygon points="40,110 5,110 20,20 25,20" fill="#f97316"/>
+    <!-- Cone stripes -->
+    <polygon points="17,35 28,35 31,55 14,55" fill="#ffffff"/>
+    <polygon points="11,70 34,70 37,90 8,90" fill="#ffffff"/>
+    <rect x="0" y="105" width="45" height="10" rx="3" fill="#ea580c"/>
+  </g>
+
+  <!-- Civic Issue Badge Overlay -->
+  <rect x="20" y="20" width="170" height="36" rx="8" fill="rgba(15, 23, 42, 0.85)"/>
+  <circle cx="40" cy="38" r="6" fill="#ef4444"/>
+  <text x="56" y="43" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Pothole Hazard</text>
+</svg>

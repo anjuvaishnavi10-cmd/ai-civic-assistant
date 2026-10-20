@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="binGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Wall Background -->
+  <rect width="600" height="260" fill="url(#wallGrad)"/>
+  <line x1="0" y1="260" x2="600" y2="260" stroke="#64748b" stroke-width="4"/>
+  <!-- Street Ground -->
+  <rect y="260" width="600" height="140" fill="url(#groundGrad)"/>
+
+  <!-- Overflowing Municipal Dumpster Bin -->
+  <g transform="translate(140, 110)">
+    <!-- Wheels -->
+    <circle cx="50" cy="225" r="14" fill="#0f172a"/>
+    <circle cx="50" cy="225" r="5" fill="#94a3b8"/>
+    <circle cx="270" cy="225" r="14" fill="#0f172a"/>
+    <circle cx="270" cy="225" r="5" fill="#94a3b8"/>
+
+    <!-- Bin Body -->
+    <polygon points="20,70 300,70 280,215 40,215" fill="url(#binGrad)" stroke="#14532d" stroke-width="4"/>
+    <!-- Metal ribs on dumpster -->
+    <line x1="90" y1="75" x2="95" y2="210" stroke="#16a34a" stroke-width="3" opacity="0.4"/>
+    <line x1="160" y1="75" x2="160" y2="210" stroke="#16a34a" stroke-width="3" opacity="0.4"/>
+    <line x1="230" y1="75" x2="225" y2="210" stroke="#16a34a" stroke-width="3" opacity="0.4"/>
+
+    <!-- Open tilted lid -->
+    <rect x="10" y="45" width="160" height="18" rx="4" transform="rotate(-25 10 45)" fill="#14532d"/>
+    <rect x="150" y="45" width="160" height="18" rx="4" transform="rotate(30 150 45)" fill="#14532d"/>
+
+    <!-- Overflowing Trash piles -->
+    <!-- Cardboard box -->
+    <rect x="50" y="20" width="65" height="50" fill="#d97706" stroke="#b45309" stroke-width="2" transform="rotate(-10 50 20)"/>
+    <!-- Plastic garbage bags -->
+    <ellipse cx="140" cy="45" rx="45" ry="35" fill="#0284c7"/>
+    <ellipse cx="210" cy="35" rx="55" ry="42" fill="#0f172a"/>
+    <ellipse cx="260" cy="55" rx="35" ry="30" fill="#dc2626"/>
+
+    <!-- Recyclable icon on bin -->
+    <g transform="translate(145, 120) scale(0.7)" fill="none" stroke="#86efac" stroke-width="3">
+      <path d="M20 5 L35 25 H5 Z"/>
+      <path d="M5 40 L20 20 V45 Z"/>
+      <path d="M35 40 L20 40 L35 20 Z"/>
+    </g>
+  </g>
+
+  <!-- Spilled trash on pavement -->
+  <g transform="translate(40, 290)">
+    <!-- Spilled plastic bags and bottles -->
+    <ellipse cx="120" cy="40" rx="35" ry="25" fill="#0284c7" opacity="0.9"/>
+    <ellipse cx="170" cy="48" rx="40" ry="20" fill="#475569"/>
+    <ellipse cx="400" cy="45" rx="45" ry="22" fill="#1e293b"/>
+    <!-- Soda cans / containers -->
+    <rect x="230" y="45" width="25" height="14" rx="3" fill="#ef4444" transform="rotate(15 230 45)"/>
+    <rect x="270" y="52" width="28" height="12" rx="3" fill="#eab308" transform="rotate(-20 270 52)"/>
+    <rect x="330" y="48" width="30" height="16" rx="3" fill="#3b82f6" transform="rotate(8 330 48)"/>
+    <!-- Newspaper scrap -->
+    <polygon points="70,55 95,45 110,65 80,70" fill="#f8fafc" stroke="#94a3b8"/>
+  </g>
+
+  <!-- Civic Issue Badge Overlay -->
+  <rect x="20" y="20" width="220" height="36" rx="8" fill="rgba(15, 23, 42, 0.85)"/>
+  <circle cx="40" cy="38" r="6" fill="#f59e0b"/>
+  <text x="56" y="43" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Garbage Accumulation</text>
+</svg>
