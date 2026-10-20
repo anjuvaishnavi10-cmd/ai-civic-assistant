@@ -455,6 +455,7 @@ function initReportPage() {
         const reader = new FileReader();
         reader.onload = (event) => {
           currentUploadedImageDataUrl = event.target.result;
+          aiViewport.innerHTML = `<img src="${currentUploadedImageDataUrl}" alt="Uploaded issue preview" style="width:100%; height:100%; object-fit:contain;" />`;
           const currentCat = categorySelect.value || 'Pothole';
           updateAiSimulation(currentUploadedImageDataUrl, currentCat);
           showToast('Image uploaded successfully! Simulated AI analysis running...', 'success');
