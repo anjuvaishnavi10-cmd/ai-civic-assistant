@@ -251,36 +251,35 @@
           </div>
 
           <!-- Image Scanning Viewport with Laser Beam & Bounding Box -->
-          <div class="ai-viewport" id="ai-viewport">
-            <img src="assets/images/pothole.svg" alt="Pothole Demo Preview" />
-            <div class="ai-scanner-line"></div>
-            <div class="ai-bounding-box">
-              <span class="ai-tag-floating">Pothole</span>
-            </div>
-          </div>
+         <div class="ai-viewport" id="ai-viewport">
+  <div id="ai-placeholder" style="text-align:center; padding:40px 20px;">
+    <p>📷</p>
+    <p>Upload an image to begin AI detection</p>
+  </div>
+</div>
 
           <!-- AI Model Metrics Panel -->
           <div class="ai-results-panel">
             <div class="ai-metric-row">
               <span class="ai-metric-label">Detected Category:</span>
-              <span class="ai-metric-value" id="ai-detected-category">Pothole</span>
+              <span class="ai-metric-value" id="ai-detected-category">Awaiting Image</span>
             </div>
 
             <div class="confidence-bar-wrap">
-              <div class="confidence-bar-header">
-                <span class="ai-metric-label">AI Confidence Score:</span>
-                <span class="ai-metric-value" id="ai-confidence-val">95.4%</span>
-              </div>
-              <div class="confidence-track">
-                <div class="confidence-fill" id="ai-confidence-fill" style="width: 95.4%;"></div>
-              </div>
-            </div>
+  <div class="confidence-bar-header">
+    <span class="ai-metric-label">AI Confidence Score:</span>
+    <span class="ai-metric-value" id="ai-confidence-val">--</span>
+  </div>
 
-            <div class="ai-metric-row">
-              <span class="ai-metric-label">Severity Assessment:</span>
-              <span class="ai-metric-value" id="ai-priority-score">High</span>
-            </div>
+  <div class="confidence-track">
+    <div class="confidence-fill" id="ai-confidence-fill" style="width: 0%;"></div>
+  </div>
+</div>
 
+<div class="ai-metric-row">
+  <span class="ai-metric-label">Severity Assessment:</span>
+  <span class="ai-metric-value" id="ai-priority-score">Awaiting image</span>
+</div>
             <div class="ai-metric-row" style="margin-bottom: 0;">
               <span class="ai-metric-label">Pipeline Architecture:</span>
               <span class="ai-metric-value" style="font-size: 0.82rem; color: var(--primary-700);">YOLOv8-Civic (Simulation Mode)</span>
