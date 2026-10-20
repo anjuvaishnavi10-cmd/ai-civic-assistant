@@ -453,13 +453,77 @@ function initReportPage() {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = (event) => {
-          currentUploadedImageDataUrl = event.target.result;
-          aiViewport.innerHTML = `<img src="${currentUploadedImageDataUrl}" alt="Uploaded issue preview" style="width:100%; height:100%; object-fit:contain;" />`;
-          const currentCat = categorySelect.value || 'Pothole';
-          updateAiSimulation(currentUploadedImageDataUrl, currentCat);
-          showToast('Image uploaded successfully! Simulated AI analysis running...', 'success');
-        };
+       reader.onload = async (event) => {
+    currentUploadedImageDataUrl = event.target.result;
+
+    aiViewport.innerHTML = `
+        <img
+            src="${currentUploadedImageDataUrl}"
+            alt="Uploaded civic issue"
+            style="width:100%; height:100%; object-fit:contain;"
+        />
+        <div class="ai-scanner-line"></div>
+    `;
+
+    const categoryEl = document.getElementById("ai-detected-category");
+    const confidenceEl = document.getElementById("ai-confidence-val");
+    const confidenceFill = document.getElementById("ai-confidence-fill");
+    const severityEl = document.getElementById("ai-priority-score");
+
+    if (categoryEl) categoryEl.textContent = "Analyzing image...";
+    if (confidenceEl) confidenceEl.textContent = "--";
+    if (confidenceFill) confidenceFill.style.width = "0%";
+    if (severityEl) severityEl.textContent = "Analyzing...";
+
+    try {
+        const base64Image = currentUploadedImageDataUrl.split(",")[1];
+
+        const response = await fetch("/api/detect", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ image: base64Image })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Detection request failed");
+        }
+
+        const predictions = data.predictions || [];
+
+        if (predictions.length === 0) {
+            if (categoryEl) categoryEl.textContent = "No pothole detected";
+            if (confidenceEl) confidenceEl.textContent = "--";
+            if (confidenceFill) confidenceFill.style.width = "0%";
+            if (severityEl) severityEl.textContent = "Not assessed";
+            return;
+        }
+
+        const best = predictions.reduce((a, b) =>
+            a.confidence > b.confidence ? a : b
+        );
+
+        const percent = Math.round(best.confidence * 1000) / 10;
+
+        if (categoryEl) categoryEl.textContent = best.class;
+        if (confidenceEl) confidenceEl.textContent = `${percent}%`;
+        if (confidenceFill) confidenceFill.style.width = `${percent}%`;
+        if (severityEl) severityEl.textContent = "Requires review";
+
+        showToast("AI image analysis completed!", "success");
+
+    } catch (error) {
+        console.error("AI detection error:", error);
+
+        if (categoryEl) categoryEl.textContent = "Detection failed";
+        if (confidenceEl) confidenceEl.textContent = "--";
+        if (confidenceFill) confidenceFill.style.width = "0%";
+        if (severityEl) severityEl.textContent = "Not assessed";
+
+        showToast(error.message || "Could not analyze image. Please try again.", "error");
+    }
+};
         reader.readAsDataURL(file);
       }
     });
