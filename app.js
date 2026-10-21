@@ -497,12 +497,16 @@ function initReportPage() {
         const predictions = data.predictions || [];
 
         if (predictions.length === 0) {
-            if (categoryEl) categoryEl.textContent = "No pothole detected";
-            if (confidenceEl) confidenceEl.textContent = "--";
-            if (confidenceFill) confidenceFill.style.width = "0%";
-            if (severityEl) severityEl.textContent = "Not assessed";
-            return;
-        }
+  if (categoryEl) {
+    const selectedCategory = categorySelect?.value || "Issue";
+    categoryEl.textContent = `No ${selectedCategory.toLowerCase()} detected`;
+  }
+
+  if (confidenceEl) confidenceEl.textContent = "--";
+  if (confidenceFill) confidenceFill.style.width = "0%";
+  if (severityEl) severityEl.textContent = "Not assessed";
+  return;
+}
 
         const best = predictions.reduce((a, b) =>
             a.confidence > b.confidence ? a : b
