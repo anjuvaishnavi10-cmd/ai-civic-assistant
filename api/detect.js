@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
     const models = {
       pothole: "pothole-detection-u53qg/12",
-      garbage: "garbage_detection-wwzwv/9"
+      garbage: "garbage_detection-wvzwv/9"
     };
 
     const modelId = models[issueType];
