@@ -481,7 +481,10 @@ function initReportPage() {
         const response = await fetch("/api/detect", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ image: base64Image })
+           body: JSON.stringify({
+  image: base64Image,
+  issueType: categorySelect.value.toLowerCase()
+})
         });
 
         const data = await response.json();
