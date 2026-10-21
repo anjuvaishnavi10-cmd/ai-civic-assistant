@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { image } = req.body || {};
+    const { image, issueType = "pothole" } = req.body || {};
 
     if (!image) {
       return res.status(400).json({
@@ -14,8 +14,21 @@ export default async function handler(req, res) {
       });
     }
 
+    const models = {
+      pothole: "pothole-detection-u53qg/12",
+      garbage: "garbage_detection-wwzwv/9"
+    };
+
+    const modelId = models[issueType];
+
+    if (!modelId) {
+      return res.status(400).json({
+        error: "Unsupported issue type"
+      });
+    }
+
     const response = await fetch(
-      "https://serverless.roboflow.com/pothole-detection-u53qg/12",
+      `https://serverless.roboflow.com/${modelId}`,
       {
         method: "POST",
         headers: {
